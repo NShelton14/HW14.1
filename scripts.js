@@ -47,10 +47,10 @@ function renderList(listItems) {
     .join('');
 }
 
-renderList(catalog);
-
 form.addEventListener('keyup', event => {
   event.preventDefault();
 
-  const result = catalog.filter();
+  const result = catalog.filter(({ price }) => price.slice(1) < maxPrice.value);
+
+  renderList(result);
 });
