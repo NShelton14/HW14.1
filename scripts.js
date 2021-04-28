@@ -51,7 +51,7 @@ form.addEventListener('keyup', event => {
   event.preventDefault();
 
   const result = catalog.filter(
-    ({ price }) => price.slice(1) <= parseInt(max.value, 2),
+    ({ price }) => price.slice(1) <= parseInt(max.value, 10),
   );
   renderList(result);
 });
