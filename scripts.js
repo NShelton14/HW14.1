@@ -1,4 +1,6 @@
-const ul = document.body.appendChild(document.createElement('ul'));
+const form = document.querySelector('form');
+const maxPrice = document.getElementById('maxPrice');
+const ul = document.form.appendChild(document.createElement('ul'));
 
 const catalog = [
   {
@@ -46,3 +48,9 @@ function renderList(listItems) {
 }
 
 renderList(catalog);
+
+form.addEventListener('keyup', event => {
+  event.preventDefault();
+
+  const result = catalog.filter();
+});
