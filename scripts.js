@@ -1,6 +1,6 @@
 const form = document.querySelector('form');
 const maxPrice = document.getElementById('maxPrice');
-const ul = document.form.appendChild(document.createElement('ul'));
+const ul = document.body.appendChild(document.createElement('ul'));
 
 const catalog = [
   {
@@ -50,7 +50,7 @@ function renderList(listItems) {
 form.addEventListener('keyup', event => {
   event.preventDefault();
 
-  const result = catalog.filter(({ price }) => price.slice(1) < maxPrice.value);
+  const result = catalog.filter(({ price }) => price.slice(1) < 40);
 
   renderList(result);
 });
