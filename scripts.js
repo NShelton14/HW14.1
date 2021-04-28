@@ -49,7 +49,9 @@ function renderList(itemList) {
 
 form.addEventListener('keyup', event => {
   event.preventDefault();
-  console.log(max, max.value, 5, event.target.value);
-  const result = catalog.filter(({ price }) => price.slice(1) <= 50);
+
+  const result = catalog.filter(
+    ({ price }) => price.slice(1) <= parseInt(max.value, 2),
+  );
   renderList(result);
 });
