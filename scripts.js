@@ -1,5 +1,5 @@
 const form = document.querySelector('form');
-const maxPrice = document.getElementById('maxPrice');
+const max = document.getElementById('max');
 const ul = document.body.appendChild(document.createElement('ul'));
 
 const catalog = [
@@ -36,12 +36,12 @@ const catalog = [
   { category: 'Electronics', price: '$199.99', stocked: true, name: 'Nexus 7' },
 ];
 
-function renderList(listItems) {
-  ul.innerHTML = listItems
+function renderList(itemList) {
+  ul.innerHTML = itemList
     .map(
-      ({ price }) =>
+      ({ price, name }) =>
         `<li>
-  <label">${price}</label>
+  <label">${name} - ${price}</label>
   </li>`,
     )
     .join('');
@@ -49,8 +49,7 @@ function renderList(listItems) {
 
 form.addEventListener('keyup', event => {
   event.preventDefault();
-
-  const result = catalog.filter(({ price }) => price.slice(1) < 40);
-
+  console.log(max, max.value, 5, event.target.value);
+  const result = catalog.filter(({ price }) => price.slice(1) <= 50);
   renderList(result);
 });
