@@ -1,4 +1,4 @@
-# Name of Project: HW14.1 Render
+# HW14.1 Render
 
 ## Table of Contents
 
