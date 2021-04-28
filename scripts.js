@@ -1,6 +1,6 @@
 const form = document.querySelector('form');
 const max = document.getElementById('max');
-const ul = document.body.appendChild(document.createElement('ul'));
+const ul = form.appendChild(document.createElement('ul'));
 
 const catalog = [
   {
