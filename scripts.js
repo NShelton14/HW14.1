@@ -1,5 +1,7 @@
 const form = document.querySelector('form');
 const max = document.getElementById('max');
+const stock = document.getElementById('stock');
+const search = document.getElementById('search');
 const ul = form.appendChild(document.createElement('ul'));
 
 const catalog = [
@@ -47,11 +49,34 @@ function renderList(itemList) {
     .join('');
 }
 
-form.addEventListener('keyup', event => {
+renderList(catalog);
+
+max.addEventListener('keyup', event => {
   event.preventDefault();
 
   const result = catalog.filter(
     ({ price }) => price.slice(1) <= parseFloat(max.value),
   );
+  renderList(result);
+});
+
+stock.addEventListener('change', event => {
+  event.preventDefault();
+
+  if (stock.checked) {
+    const result = catalog.filter(({ stocked }) => stocked === true);
+
+    renderList(result);
+  } else {
+    renderList(catalog);
+  }
+});
+
+search.addEventListener('keyup', event => {
+  event.preventDefault();
+  const result = catalog.filter(({ name }) =>
+    name.toLowerCase().includes(search.value.toLowerCase()),
+  );
+
   renderList(result);
 });
